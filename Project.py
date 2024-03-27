@@ -3,18 +3,21 @@ def main():
     #Team project
     #accepts no arguments
     #calls all functions
-    shift=get_shift()
-    message=get_message()
-    choice=choose_option()
-    key=create_key(shift)
-    if choice==False:
-        message=decode(message,key)
-        print("Here is your decoded message")
-        print(message)
-    elif choice==True:
-        message=encode(message,key)
-        print("Here is your encoded message")
-        print(message)
+    try:
+        shift=get_shift()
+        message=get_message()
+        choice=choose_option()
+        key=create_key(shift)
+        if choice==False:
+            message=decode(message,key)
+            print("Here is your decoded message")
+            print(message)
+        elif choice==True:
+            message=encode(message,key)
+            print("Here is your encoded message")
+            print(message)
+    except Exception as err:
+        print(err)
 def get_shift():
     #prompts user for shift value
     #returns value as string
@@ -109,6 +112,9 @@ def create_key(shift):
     return key
   
 def encode(message, key):
+    #teamproject
+    #accept string and list
+    #decodes a message
     letter=""
     for x in message:
         letter1 = key[x]

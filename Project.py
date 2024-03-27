@@ -1,6 +1,20 @@
+import string
 def main():
-    pass
-
+    #Team project
+    #accepts no arguments
+    #calls all functions
+    shift=get_shift()
+    message=get_message()
+    choice=choose_option()
+    key=create_key(shift)
+    if choice==False:
+        message=decode(message,key)
+        print("Here is your decoded message")
+        print(message)
+    elif choice==True:
+        message=encode(message,key)
+        print("Here is your encoded message")
+        print(message)
 def get_shift():
     #prompts user for shift value
     #returns value as string
@@ -19,7 +33,14 @@ def get_shift():
             shift = input("Enter a valid shift value from 1 to 25: ")
         shift = int(shift)
         
-    return str(shift)
+    return shift
+def get_message():
+    #prompts user to enter a message to encode or decode
+    #returns the message
+    
+    message = input("Enter a message to encode or decode: ")
+    
+    return message
         
 
 def choose_option():
@@ -51,12 +72,29 @@ def choose_option():
     elif choice == 2:
         return False
 
-def get_message():
-    pass
-
-def create_key():
-    pass
-
+def create_key(shift):
+    uletters=string.ascii_uppercase
+    letters=string.ascii_lowercase
+    key=dict()
+    index=0
+    index1=0
+    for x in letters:
+        index=index1+shift
+        if index>25:
+            index=(26-index)*-1
+        key[x]=letters[index]
+        index1+=1
+        index=0
+    index1=0
+    index=0
+    for x in uletters:
+        index=index1+shift
+        if index>25:
+            index=(26-index)*-1
+        key[x]=uletters[index]
+        index1+=1
+        index=0
+    return key
 def encode(message,key):
     pass
 

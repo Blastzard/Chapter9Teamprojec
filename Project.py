@@ -107,9 +107,16 @@ def create_key(shift):
         index=0
     key[" "]=" "
     return key
-def encode(message,key):
-    pass
-
+  
+def encode(message, key):
+    print("Here is your encoded message: ")
+    
+    for x in message:
+        letter1 = key[x]
+        letter = letter + letter1
+    
+    return letter
+    
 def decode(message,key):
     #teamproject
     #accept string and list
@@ -121,4 +128,3 @@ def decode(message,key):
         letter1=key[x]
         letter=letter+letter1
     return letter
-    

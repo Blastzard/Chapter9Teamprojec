@@ -40,13 +40,13 @@ def get_message():
     
     message = input("Enter a message to encode or decode: ")
     
-    message1=message.replace(""," ")
+    message1=message.replace(" ","")
         
     while message1.isalpha() == False:
         
         message = input("Enter a message to encode or decode: ")
         
-        message1=message.replace(""," ")
+        message1=message.replace(" ","")
     
     return message
         
@@ -109,20 +109,23 @@ def create_key(shift):
     return key
   
 def encode(message, key):
-    
+    letter=""
     for x in message:
         letter1 = key[x]
         letter = letter + letter1
     
     return letter
     
-def decode(message,key):
+def decode(message,key1):
     #teamproject
     #accept string and list
     #decodes a message
-    for key, value in key.items():
+    index=0
+    key=dict()
+    for key1, value in key1.items():
             index+=1
-            codes[value]=key
+            key[value]=key1
+    letter=""
     for x in message:
         letter1=key[x]
         letter=letter+letter1

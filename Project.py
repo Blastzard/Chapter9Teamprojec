@@ -95,8 +95,16 @@ def create_key(shift):
         index1+=1
         index=0
     return key
-def encode(message,key):
-    pass
 
-def decode(message,key):
+def encode(message, key):
+    print("Here is your encoded message: ")
+    
+    for x in message:
+        letter1 = key[x]
+        letter = letter + letter1
+    print(x)
+    return letter
+    
+
+def decode(message, key):
     pass

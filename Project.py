@@ -40,6 +40,14 @@ def get_message():
     
     message = input("Enter a message to encode or decode: ")
     
+    message1=message.replace(""," ")
+        
+    while message1.isalpha() == False:
+        
+        message = input("Enter a message to encode or decode: ")
+        
+        message1=message.replace(""," ")
+    
     return message
         
 
@@ -73,6 +81,9 @@ def choose_option():
         return False
 
 def create_key(shift):
+    #team project
+    #create key
+    #accepts integar
     uletters=string.ascii_uppercase
     letters=string.ascii_lowercase
     key=dict()
@@ -94,9 +105,20 @@ def create_key(shift):
         key[x]=uletters[index]
         index1+=1
         index=0
+    key[" "]=" "
     return key
 def encode(message,key):
     pass
 
 def decode(message,key):
-    pass
+    #teamproject
+    #accept string and list
+    #decodes a message
+    for key, value in key.items():
+            index+=1
+            codes[value]=key
+    for x in message:
+        letter1=key[x]
+        letter=letter+letter1
+    return letter
+    

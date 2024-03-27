@@ -109,7 +109,6 @@ def create_key(shift):
     return key
   
 def encode(message, key):
-    print("Here is your encoded message: ")
     
     for x in message:
         letter1 = key[x]
